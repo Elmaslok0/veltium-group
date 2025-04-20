@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créditos - Veltium Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #0c2340;
+            --secondary-color: #d4b36b;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: var(--secondary-color);
+        }
+        
+        .hero-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-section p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .intro-section {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .services-section {
+            padding: 4rem 0;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .service-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .service-card ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .process-section {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            height: 100%;
+        }
+        
+        .process-step .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        
+        .process-step h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .faq-section {
+            padding: 4rem 0;
+        }
+        
+        .accordion-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            background-color: white;
+        }
+        
+        .accordion-button {
+            font-weight: 600;
+            color: var(--primary-color);
+            background-color: white;
+            padding: 1.25rem;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            color: var(--primary-color);
+            background-color: rgba(212, 179, 107, 0.1);
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--border-color);
+        }
+        
+        .accordion-body {
+            padding: 1.25rem;
+            background-color: white;
+        }
+        
+        .cta-section {
+            padding: 4rem 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-light:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-contact {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-contact i {
+            margin-right: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-social {
+            margin-top: 2rem;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .regulators {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .regulators img {
+            height: 40px;
+            margin: 0 1rem 1rem;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .regulators img:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-section {
+                padding: 3rem 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .service-card,
+            .process-step {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .navbar-brand img {
+                height: 40px;
+            }
+            
+            .hero-section {
+                padding: 2.5rem 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.75rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .intro-section,
+            .services-section,
+            .process-section,
+            .faq-section,
+            .cta-section {
+                padding: 3rem 0;
+            }
+            
+            .service-card,
+            .process-step {
+                padding: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .process-step .step-number {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 1.25rem;
+            }
+            
+            .footer-logo {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Veltium Group">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="creditos.html">Créditos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="documentos.html">Documentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Soluciones de Financiamiento</h1>
+            <p>Descubre nuestras opciones de crédito diseñadas especialmente para impulsar el crecimiento de tu PyME.</p>
+        </div>
+    </section>
+
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <div class="container">
+            <h2 class="section-title">Financiamiento para PyMEs</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <p class="intro-text">
+                        En Veltium Group entendemos que cada negocio tiene necesidades únicas. Por eso, ofrecemos soluciones de financiamiento flexibles y adaptadas a los requerimientos específicos de tu PyME, con montos desde $300,000 hasta $30,000,000 MXN.
+                    </p>
+                    <p class="intro-text">
+                        Nuestros productos financieros están diseñados para ayudarte a alcanzar tus objetivos de crecimiento, ya sea para capital de trabajo, adquisición de activos, expansión de operaciones o cualquier otro proyecto que impulse tu negocio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="row">
+                <!-- Crédito PyMEs -->
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card">
+                        <h3>Crédito PyMEs</h3>
+                        
+                        <h4>Características</h4>
+                        <ul>
+                            <li>Montos desde $300,000 hasta $30,000,000 MXN</li>
+                            <li>Plazos flexibles de 12 a 60 meses</li>
+                            <li>Tasas competitivas desde 12% anual</li>
+                            <li>Aprobación en 48 horas</li>
+                            <li>Sin penalización por pagos anticipados</li>
+                        </ul>
+                        
+                        <h4>Beneficios</h4>
+                        <ul>
+                            <li>Impulsa el crecimiento de tu negocio</li>
+                            <li>Financia proyectos de expansión</li>
+                            <li>Adquiere maquinaria y equipo</li>
+                            <li>Moderniza tus instalaciones</li>
+                            <li>Aumenta tu capacidad productiva</li>
+                            <li>Mejora tu flujo de efectivo</li>
+                        </ul>
+                        
+                        <h4>Requisitos</h4>
+                        <ul>
+                            <li>Negocio con al menos 2 años de operación</li>
+                            <li>Ventas anuales superiores a $1,000,000 MXN</li>
+                            <li>Buen historial crediticio</li>
+                            <li>Documentación legal completa</li>
+                            <li>Estados financieros de los últimos 2 años</li>
+                            <li>Proyección financiera del proyecto a financiar</li>
+                        </ul>
+                        
+                        <div class="text-center mt-4">
+                            <a href="documentos.html" class="btn btn-primary">Solicitar ahora</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Crédito Simple -->
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card">
+                        <h3>Crédito Simple</h3>
+                        
+                        <h4>Características</h4>
+                        <ul>
+                            <li>Montos desde $300,000 hasta $5,000,000 MXN</li>
+                            <li>Plazos de 12 a 36 meses</li>
+                            <li>Tasas desde 14% anual</li>
+                            <li>Respuesta en 24 horas</li>
+                            <li>Pagos fijos mensuales</li>
+                            <li>Disposición inmediata</li>
+                        </ul>
+                        
+                        <h4>Beneficios</h4>
+                        <ul>
+                            <li>Liquidez inmediata para tu negocio</li>
+                            <li>Aprovecha oportunidades comerciales</li>
+                            <li>Cubre necesidades operativas</li>
+                            <li>Financia capital de trabajo</li>
+                            <li>Haz frente a imprevistos</li>
+                            <li>Consolida deudas con mejores condiciones</li>
+                        </ul>
+                        
+                        <h4>Requisitos</h4>
+                        <ul>
+                            <li>Negocio con al menos 1 año de operación</li>
+                            <li>Ventas anuales superiores a $500,000 MXN</li>
+                            <li>Buen historial crediticio</li>
+                            <li>Identificación oficial del representante legal</li>
+                            <li>Acta constitutiva y poderes</li>
+                            <li>Estados de cuenta de los últimos 6 meses</li>
+                        </ul>
+                        
+                        <div class="text-center mt-4">
+                            <a href="documentos.html" class="btn btn-primary">Solicitar ahora</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Crédito para Activos Fijos -->
+                <div class="col-lg-4 mb-4">
+                    <div class="service-card">
+                        <h3>Crédito para Activos Fijos</h3>
+                        
+                        <h4>Características</h4>
+                        <ul>
+                            <li>Montos desde $500,000 hasta $20,000,000 MXN</li>
+                            <li>Plazos de hasta 60 meses</li>
+                            <li>Tasas desde 13% anual</li>
+                            <li>Financiamiento de hasta el 80% del valor del activo</li>
+                            <li>Posibilidad de periodo de gracia</li>
+                            <li>Pagos ajustados al flujo de tu negocio</li>
+                        </ul>
+                        
+                        <h4>Beneficios</h4>
+                        <ul>
+                            <li>Adquiere maquinaria y equipo</li>
+                            <li>Moderniza tu infraestructura</li>
+                            <li>Amplía tu capacidad productiva</li>
+                            <li>Mejora la eficiencia operativa</li>
+                            <li>Incorpora tecnología de punta</li>
+                            <li>Conserva tu capital de trabajo</li>
+                        </ul>
+                        
+                        <h4>Requisitos</h4>
+                        <ul>
+                            <li>Negocio con al menos 2 años de operación</li>
+                            <li>Ventas anuales superiores a $2,000,000 MXN</li>
+                            <li>Buen historial crediticio</li>
+                            <li>Cotización del activo a financiar</li>
+                            <li>Estados financieros de los últimos 2 años</li>
+                            <li>Proyección de retorno de inversión</li>
+                        </ul>
+                        
+                        <div class="text-center mt-4">
+                            <a href="documentos.html" class="btn btn-primary">Solicitar ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <h2 class="section-title">Proceso de Solicitud</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <h3>Solicitud</h3>
+                        <p>Completa el formulario de solicitud y sube los documentos requeridos a través de nuestra plataforma segura.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <h3>Análisis</h3>
+                        <p>Nuestro equipo de expertos analiza tu solicitud y evalúa la viabilidad del financiamiento en un plazo máximo de 48 horas.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <h3>Aprobación</h3>
+                        <p>Te notificamos la aprobación de tu crédito y te presentamos las condiciones específicas del financiamiento.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <h3>Disposición</h3>
+                        <p>Firmamos el contrato y realizamos la transferencia de los fondos a tu cuenta bancaria en un plazo de 24 a 72 horas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    ¿Cuál es el tiempo de respuesta para mi solicitud?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    El tiempo de respuesta para las solicitudes de crédito es de 24 a 48 horas hábiles, dependiendo del tipo de crédito y el monto solicitado. Nuestro equipo trabaja de manera eficiente para brindarte una respuesta lo más rápido posible.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    ¿Qué documentos necesito para solicitar un crédito?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Los documentos básicos requeridos son: identificación oficial del representante legal, acta constitutiva, acta de situación fiscal, comprobante de domicilio, 6 estados de cuenta bancarios recientes, estados financieros de los últimos 2 años y proyecciones financieras. Dependiendo del tipo de crédito, podrían solicitarse documentos adicionales.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    ¿Cuáles son las tasas de interés que manejan?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Nuestras tasas de interés son competitivas y varían según el tipo de crédito, el monto solicitado, el plazo y el perfil de riesgo del cliente. Las tasas comienzan desde el 12% anual para Crédito PyMEs, 14% para Crédito Simple y 13% para Crédito de Activos Fijos. Te ofrecemos una tasa personalizada después de evaluar tu solicitud.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    ¿Puedo pagar mi crédito anticipadamente?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sí, en Veltium Group permitimos pagos anticipados sin penalización. Puedes realizar pagos parciales o liquidar completamente tu crédito en cualquier momento, lo que te ayudará a reducir el monto total de intereses a pagar.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    ¿Qué garantías solicitan para otorgar un crédito?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Las garantías requeridas dependen del tipo de crédito y el monto solicitado. Para montos menores, generalmente solicitamos aval del representante legal. Para montos mayores, podríamos requerir garantías hipotecarias, prendarias o fiduciarias. En el caso de Crédito para Activos Fijos, el mismo activo puede servir como garantía.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Listo para impulsar tu negocio?</h2>
+            <p>Comienza el proceso de solicitud hoy mismo y recibe una respuesta en 48 horas.</p>
+            <a href="documentos.html" class="btn btn-light">Solicitar financiamiento</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="images/logo.png" alt="Veltium Group" class="footer-logo">
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Torre Reforma, Paseo de la Reforma 483, Cuauhtémoc, 06500 Ciudad de México, CDMX</p>
+                        <p><i class="fas fa-phone"></i> (55) 1234 5678</p>
+                        <p><i class="fas fa-envelope"></i> contacto@veltiumgroup.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <div class="footer-links">
+                        <h4>Enlaces</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                            <li><a href="creditos.html">Créditos</a></li>
+                            <li><a href="documentos.html">Documentos</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <div class="footer-links">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="creditos.html">Crédito PyMEs</a></li>
+                            <li><a href="creditos.html">Crédito Simple</a></li>
+                            <li><a href="creditos.html">Crédito Activos Fijos</a></li>
+                            <li><a href="#">Asesoría Financiera</a></li>
+                            <li><a href="#">Consultoría Empresarial</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <div class="footer-links">
+                        <h4>Regulación</h4>
+                        <p>Veltium Group es una empresa regulada y supervisada por las principales entidades financieras de México, garantizando operaciones seguras y transparentes.</p>
+                        <div class="regulators">
+                            <img src="images/cnbv.png" alt="CNBV">
+                            <img src="images/condusef.fw.png" alt="CONDUSEF">
+                            <img src="images/buro.png" alt="Buró de Entidades Financieras">
+                            <img src="images/logoESR.png" alt="ESR">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Veltium Group. Todos los derechos reservados.</p>
+                <p>
+                    <a href="#">Términos y Condiciones</a> | 
+                    <a href="#">Política de Privacidad</a> | 
+                    <a href="#">Aviso Legal</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

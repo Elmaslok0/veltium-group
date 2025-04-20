@@ -1,0 +1,193 @@
+/* Ajustes adicionales para mejorar la responsividad del sitio web de Veltium Group */
+
+/* Asegurar que las imágenes sean responsivas */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mejorar la navegación en dispositivos móviles */
+@media (max-width: 767px) {
+  /* Menú hamburguesa mejorado */
+  .navbar-toggler {
+    border: none;
+    padding: 10px;
+    outline: none !important;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none;
+  }
+  
+  /* Mejorar la navegación desplegable */
+  .navbar-collapse {
+    background-color: var(--primary-dark-blue);
+    border-radius: 0 0 8px 8px;
+    padding: 10px;
+    margin-top: 5px;
+  }
+  
+  .navbar-nav .nav-item {
+    margin: 5px 0;
+  }
+  
+  /* Ajustar espaciado en secciones */
+  .row > [class*="col-"] {
+    margin-bottom: 20px;
+  }
+  
+  .row > [class*="col-"]:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Mejorar formularios en móvil */
+  .form-row {
+    flex-direction: column;
+  }
+  
+  .form-row .form-group {
+    width: 100%;
+    padding: 0;
+  }
+  
+  /* Ajustar botones en móvil */
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-group .btn {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  /* Mejorar visualización de tablas */
+  .table-responsive {
+    border: none;
+  }
+}
+
+/* Ajustes para el panel de administración en móviles */
+@media (max-width: 767px) {
+  /* Añadir botón para mostrar/ocultar sidebar */
+  .admin-toggle-sidebar {
+    display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+    background-color: var(--primary-dark-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+    cursor: pointer;
+  }
+  
+  /* Ajustar sidebar para que se muestre sobre el contenido */
+  .admin-sidebar {
+    position: fixed;
+    left: -250px;
+    transition: left 0.3s ease;
+    z-index: 1050;
+  }
+  
+  .admin-sidebar.active {
+    left: 0;
+  }
+  
+  /* Añadir overlay cuando el sidebar está activo */
+  .admin-sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1040;
+  }
+  
+  .admin-sidebar-overlay.active {
+    display: block;
+  }
+  
+  /* Ajustar contenido principal */
+  .admin-content {
+    margin-left: 0;
+    padding-top: 60px;
+  }
+}
+
+/* Optimizaciones para dispositivos de alta resolución */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Asegurar que los textos sean nítidos */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Ajustes para modo oscuro si el sistema lo tiene activado */
+@media (prefers-color-scheme: dark) {
+  /* No aplicamos modo oscuro automáticamente, pero podríamos añadir
+     algunas optimizaciones para mejorar la legibilidad en estos casos */
+  .btn, .form-control, .card {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Ajustes para usuarios que prefieren movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ajustes para impresión */
+@media print {
+  .navbar, .footer-section, .btn, .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    color: #000;
+    background-color: #fff;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .card, .form-container {
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+  
+  /* Asegurar que el contenido importante se imprima */
+  .print-break-before {
+    page-break-before: always;
+  }
+  
+  .print-break-after {
+    page-break-after: always;
+  }
+  
+  .print-avoid-break {
+    page-break-inside: avoid;
+  }
+}

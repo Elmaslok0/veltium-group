@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Veltium Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../src/styles/main.css">
+    <link rel="stylesheet" href="../src/styles/admin.css">
+    <link rel="icon" href="../images/logo.png" type="image/png">
+</head>
+<body class="admin-body">
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="admin-sidebar">
+            <div class="admin-logo-container">
+                <img src="../images/logo.png" alt="Veltium Group" class="admin-logo">
+            </div>
+            <div class="admin-user-info">
+                <div class="admin-user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="admin-user-details">
+                    <h4 id="adminUserName">Administrador</h4>
+                    <p id="adminUserRole">Super Admin</p>
+                </div>
+            </div>
+            <nav class="admin-nav">
+                <ul class="admin-nav-list">
+                    <li class="admin-nav-item">
+                        <a href="index.html" class="admin-nav-link active">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="solicitudes.html" class="admin-nav-link">
+                            <i class="fas fa-file-alt"></i> Solicitudes
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="documentos.html" class="admin-nav-link">
+                            <i class="fas fa-folder-open"></i> Documentos
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="clientes.html" class="admin-nav-link">
+                            <i class="fas fa-users"></i> Clientes
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="usuarios.html" class="admin-nav-link">
+                            <i class="fas fa-user-cog"></i> Usuarios
+                        </a>
+                    </li>
+                    <li class="admin-nav-item">
+                        <a href="configuracion.html" class="admin-nav-link">
+                            <i class="fas fa-cogs"></i> Configuración
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="admin-logout">
+                <a href="login.html" class="admin-logout-link">
+                    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="admin-content">
+            <header class="admin-header">
+                <div class="admin-header-title">
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="admin-header-actions">
+                    <div class="admin-search">
+                        <input type="text" placeholder="Buscar..." class="admin-search-input">
+                        <button class="admin-search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="admin-notifications">
+                        <button class="admin-notifications-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="admin-notifications-badge">3</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="admin-main">
+                <!-- Stats Cards -->
+                <div class="admin-stats">
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-icon bg-primary">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="admin-stat-info">
+                            <h3>12</h3>
+                            <p>Solicitudes Pendientes</p>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-icon bg-success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="admin-stat-info">
+                            <h3>24</h3>
+                            <p>Solicitudes Aprobadas</p>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-icon bg-warning">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="admin-stat-info">
+                            <h3>8</h3>
+                            <p>En Revisión</p>
+                        </div>
+                    </div>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-icon bg-danger">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="admin-stat-info">
+                            <h3>5</h3>
+                            <p>Rechazadas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Applications -->
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h2>Solicitudes Recientes</h2>
+                        <a href="solicitudes.html" class="admin-card-link">Ver todas</a>
+                    </div>
+                    <div class="admin-card-body">
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Empresa</th>
+                                        <th>Tipo de Crédito</th>
+                                        <th>Monto</th>
+                                        <th>Fecha</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1001</td>
+                                        <td>Tecnología Aplicada S.A. de C.V.</td>
+                                        <td>Crédito PyMEs</td>
+                                        <td>$2,500,000</td>
+                                        <td>19/04/2025</td>
+                                        <td><span class="status-badge status-pending">Pendiente</span></td>
+                                        <td>
+                                            <div class="admin-actions">
+                                                <a href="solicitud-detalle.html?id=1001" class="admin-action-btn">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="admin-action-btn">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1002</td>
+                                        <td>Construcciones Modernas S.A.</td>
+                                        <td>Crédito Activos Fijos</td>
+                                        <td>$5,800,000</td>
+                                        <td>18/04/2025</td>
+                                        <td><span class="status-badge status-review">En Revisión</span></td>
+                                        <td>
+                                            <div class="admin-actions">
+                                                <a href="solicitud-detalle.html?id=1002" class="admin-action-btn">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="admin-action-btn">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1003</td>
+                                        <td>Distribuidora Nacional de Alimentos</td>
+                                        <td>Crédito Simple</td>
+                                        <td>$1,200,000</td>
+                                        <td>17/04/2025</td>
+                                        <td><span class="status-badge status-approved">Aprobada</span></td>
+                                        <td>
+                                            <div class="admin-actions">
+                                                <a href="solicitud-detalle.html?id=1003" class="admin-action-btn">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="admin-action-btn">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1004</td>
+                                        <td>Servicios Médicos Especializados</td>
+                                        <td>Crédito PyMEs</td>
+                                        <td>$3,500,000</td>
+                                        <td>16/04/2025</td>
+                                        <td><span class="status-badge status-rejected">Rechazada</span></td>
+                                        <td>
+                                            <div class="admin-actions">
+                                                <a href="solicitud-detalle.html?id=1004" class="admin-action-btn">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="admin-action-btn">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1005</td>
+                                        <td>Industrias Metálicas del Centro</td>
+                                        <td>Crédito Activos Fijos</td>
+                                        <td>$8,200,000</td>
+                                        <td>15/04/2025</td>
+                                        <td><span class="status-badge status-pending">Pendiente</span></td>
+                                        <td>
+                                            <div class="admin-actions">
+                                                <a href="solicitud-detalle.html?id=1005" class="admin-action-btn">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                                <button class="admin-action-btn">
+                                                    <i class="fas fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Two Column Layout -->
+                <div class="admin-row">
+                    <!-- Recent Documents -->
+                    <div class="admin-col">
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h2>Documentos Recientes</h2>
+                                <a href="documentos.html" class="admin-card-link">Ver todos</a>
+                            </div>
+                            <div class="admin-card-body">
+                                <ul class="admin-document-list">
+                                    <li class="admin-document-item">
+                                        <div class="admin-document-icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </div>
+                                        <div class="admin-document-info">
+                                            <h4>Acta Constitutiva - Tecnología Aplicada</h4>
+                                            <p>Subido: 19/04/2025</p>
+                                        </div>
+                                        <div class="admin-document-actions">
+                                            <button class="admin-action-btn">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="admin-document-item">
+                                        <div class="admin-document-icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </div>
+                                        <div class="admin-document-info">
+                                            <h4>Estados de Cuenta - Construcciones Modernas</h4>
+                                            <p>Subido: 18/04/2025</p>
+                                        </div>
+                                        <div class="admin-document-actions">
+                                            <button class="admin-action-btn">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="admin-document-item">
+                                        <div class="admin-document-icon">
+                                            <i class="fas fa-file-image"></i>
+                                        </div>
+                                        <div class="admin-document-info">
+                                            <h4>INE Representante - Distribuidora Nacional</h4>
+                                            <p>Subido: 17/04/2025</p>
+                                        </div>
+                                        <div class="admin-document-actions">
+                                            <button class="admin-action-btn">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li class="admin-document-item">
+                                        <div class="admin-document-icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </div>
+                                        <div class="admin-document-info">
+                                            <h4>Situación Fiscal - Servicios Médicos</h4>
+                                            <p>Subido: 16/04/2025</p>
+                                        </div>
+                                        <div class="admin-document-actions">
+                                            <button class="admin-action-btn">
+                                                <i class="fas fa-download"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Activity Log -->
+                    <div class="admin-col">
+                        <div class="admin-card">
+                            <div class="admin-card-header">
+                                <h2>Actividad Reciente</h2>
+                                <a href="actividad.html" class="admin-card-link">Ver todo</a>
+                            </div>
+                            <div class="admin-card-body">
+                                <ul class="admin-activity-list">
+                                    <li class="admin-activity-item">
+                                        <div class="admin-activity-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="admin-activity-info">
+                                            <h4>Solicitud Aprobada</h4>
+                                            <p>La solicitud #1003 de Distribuidora Nacional ha sido aprobada.</p>
+                                            <span class="admin-activity-time">Hace 2 horas</span>
+                                        </div>
+                                    </li>
+                                    <li class="admin-activity-item">
+                                        <div class="admin-activity-icon">
+                                            <i class="fas fa-upload"></i>
+                                        </div>
+                                        <div class="admin-activity-info">
+                                            <h4>Nuevos Documentos</h4>
+                                            <p>Se han subido 6 nuevos documentos para la solicitud #1002.</p>
+                                            <span class="admin-activity-time">Hace 5 horas</span>
+                                        </div>
+                                    </li>
+                                    <li class="admin-activity-item">
+                                        <div class="admin-activity-icon">
+                                            <i class="fas fa-times-circle"></i>
+                                        </div>
+                                        <div class="admin-activity-info">
+                                            <h4>Solicitud Rechazada</h4>
+                                            <p>La solicitud #1004 de Servicios Médicos ha sido rechazada.</p>
+                                            <span class="admin-activity-time">Hace 1 día</span>
+                                        </div>
+                                    </li>
+                                    <li class="admin-activity-item">
+                                        <div class="admin-activity-icon">
+                                            <i class="fas fa-user-plus"></i>
+                                        </div>
+                                        <div class="admin-activity-info">
+                                            <h4>Nuevo Usuario</h4>
+                                            <p>Se ha creado un nuevo usuario administrador: Laura Torres.</p>
+                                            <span class="admin-activity-time">Hace 2 días</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulación de datos para el dashboard
+            // En una implementación real, estos datos vendrían de la base de datos
+            
+            // Actualizar nombre de usuario y rol
+            const adminUserName = document.getElementById('adminUserName');
+            const adminUserRole = document.getElementById('adminUserRole');
+            
+            // Estos valores vendrían de la sesión del usuario
+            adminUserName.textContent = 'Administrador';
+            adminUserRole.textContent = 'Super Admin';
+            
+            // Manejo de notificaciones
+            const notificationsBtn = document.querySelector('.admin-notifications-btn');
+            
+            if (notificationsBtn) {
+                notificationsBtn.addEventListener('click', function() {
+                    alert('Funcionalidad de notificaciones en desarrollo');
+                });
+            }
+            
+            // Manejo de búsqueda
+            const searchBtn = document.querySelector('.admin-search-btn');
+            const searchInput = document.querySelector('.admin-search-input');
+            
+            if (searchBtn && searchInput) {
+                searchBtn.addEventListener('click', function() {
+                    if (searchInput.value.trim() !== '') {
+                        alert(`Buscando: ${searchInput.value}`);
+                    }
+                });
+                
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' && this.value.trim() !== '') {
+                        alert(`Buscando: ${this.value}`);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

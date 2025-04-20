@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud y Documentos - Veltium Group</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #0c2340;
+            --secondary-color: #d4b36b;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --border-color: #dee2e6;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: var(--secondary-color);
+        }
+        
+        .hero-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-section p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .form-section {
+            padding: 4rem 0;
+            background-color: var(--light-color);
+        }
+        
+        .form-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .form-control {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.75rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(212, 179, 107, 0.25);
+        }
+        
+        .form-select {
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.75rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(212, 179, 107, 0.25);
+        }
+        
+        .form-text {
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background-color: var(--light-color);
+            border-color: var(--border-color);
+            color: var(--text-color);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--border-color);
+        }
+        
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            max-width: 200px;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            border: 2px solid var(--border-color);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .step.active .step-number {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .step.completed .step-number {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .step-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+        
+        .step.active .step-title,
+        .step.completed .step-title {
+            color: var(--primary-color);
+        }
+        
+        .step-connector {
+            position: absolute;
+            top: 20px;
+            left: calc(50% + 20px);
+            right: calc(50% - 20px);
+            height: 2px;
+            background-color: var(--border-color);
+            z-index: 0;
+        }
+        
+        .step:last-child .step-connector {
+            display: none;
+        }
+        
+        .step.completed .step-connector {
+            background-color: var(--primary-color);
+        }
+        
+        .file-upload {
+            margin-bottom: 1.5rem;
+        }
+        
+        .file-upload-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .file-upload-input {
+            display: none;
+        }
+        
+        .file-upload-btn {
+            display: inline-block;
+            background-color: var(--light-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .file-upload-btn:hover {
+            background-color: var(--border-color);
+        }
+        
+        .file-upload-info {
+            display: inline-block;
+            margin-left: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-light);
+        }
+        
+        .file-upload-preview {
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .file-upload-preview.active {
+            display: block;
+        }
+        
+        .file-preview-item {
+            display: flex;
+            align-items: center;
+            background-color: var(--light-color);
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .file-preview-icon {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-right: 0.75rem;
+        }
+        
+        .file-preview-name {
+            flex: 1;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .file-preview-remove {
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .file-preview-remove:hover {
+            color: #dc3545;
+        }
+        
+        .confirmation-section {
+            padding: 4rem 0;
+            text-align: center;
+            display: none;
+        }
+        
+        .confirmation-section.active {
+            display: block;
+        }
+        
+        .confirmation-icon {
+            font-size: 5rem;
+            color: #28a745;
+            margin-bottom: 2rem;
+        }
+        
+        .confirmation-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .confirmation-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .form-control.is-invalid {
+            border-color: #dc3545;
+        }
+        
+        .form-control.is-invalid + .error-message {
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-logo {
+            height: 60px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-contact {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-contact i {
+            margin-right: 0.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-social {
+            margin-top: 2rem;
+        }
+        
+        .footer-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .regulators {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .regulators img {
+            height: 40px;
+            margin: 0 1rem 1rem;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .regulators img:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 991.98px) {
+            .hero-section {
+                padding: 3rem 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .form-container {
+                padding: 1.5rem;
+            }
+            
+            .step-indicator {
+                flex-wrap: wrap;
+            }
+            
+            .step {
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 767.98px) {
+            .navbar-brand img {
+                height: 40px;
+            }
+            
+            .hero-section {
+                padding: 2.5rem 0;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.75rem;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .form-section {
+                padding: 3rem 0;
+            }
+            
+            .form-container {
+                padding: 1.25rem;
+            }
+            
+            .footer-logo {
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="images/logo.png" alt="Veltium Group">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="nosotros.html">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="creditos.html">Créditos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="documentos.html">Documentos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Solicitud de Financiamiento</h1>
+            <p>Completa el formulario y sube los documentos requeridos para iniciar tu proceso de solicitud de crédito.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="step-indicator">
+                        <div class="step active" id="step1-indicator">
+                            <div class="step-number">1</div>
+                            <div class="step-title">Información de la Empresa</div>
+                            <div class="step-connector"></div>
+                        </div>
+                        <div class="step" id="step2-indicator">
+                            <div class="step-number">2</div>
+                            <div class="step-title">Documentos Requeridos</div>
+                            <div class="step-connector"></div>
+                        </div>
+                        <div class="step" id="step3-indicator">
+                            <div class="step-number">3</div>
+                            <div class="step-title">Confirmación</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-container">
+                        <form id="solicitudForm">
+                            <!-- Step 1: Información de la Empresa -->
+                            <div class="form-step active" id="step1">
+                                <h3 class="section-subtitle">Información de la Empresa</h3>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="razonSocial" class="form-label">Razón Social</label>
+                                            <input type="text" class="form-control" id="razonSocial" name="razonSocial" required>
+                                            <div class="error-message">Este campo es obligatorio</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="rfc" class="form-label">RFC</label>
+                                            <input type="text" class="form-control" id="rfc" name="rfc" required>
+                                            <div class="error-message">Ingrese un RFC válido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="giro" class="form-label">Giro de la Empresa</label>
+                                            <select class="form-select" id="giro" name="giro" required>
+                                                <option value="" selected disabled>Seleccionar...</option>
+                                                <option value="comercio">Comercio</option>
+                                                <option value="servicios">Servicios</option>
+                                                <option value="manufactura">Manufactura</option>
+                                                <option value="construccion">Construcción</option>
+                                                <option value="tecnologia">Tecnología</option>
+                                                <option value="salud">Salud</option>
+                                                <option value="educacion">Educación</option>
+                                                <option value="otro">Otro</option>
+                                            </select>
+                                            <div class="error-message">Seleccione una opción</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="antiguedad" class="form-label">Antigüedad (años)</label>
+                                            <input type="number" class="form-control" id="antiguedad" name="antiguedad" min="1" required>
+                                            <div class="error-message">Ingrese un valor válido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="direccion" class="form-label">Dirección</label>
+                                            <input type="text" class="form-control" id="direccion" name="direccion" required>
+                                            <div class="error-message">Este campo es obligatorio</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="codigoPostal" class="form-label">Código Postal</label>
+                                            <input type="text" class="form-control" id="codigoPostal" name="codigoPostal" required>
+                                            <div class="error-message">Ingrese un código postal válido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="ciudad" class="form-label">Ciudad</label>
+                                            <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                                            <div class="error-message">Este campo es obligatorio</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="estado" class="form-label">Estado</label>
+                                            <input type="text" class="form-control" id="estado" name="estado" required>
+                                            <div class="error-message">Este campo es obligatorio</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="telefono" class="form-label">Teléfono</label>
+                                            <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                                            <div class="error-message">Ingrese un número de teléfono válido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email" class="form-label">Correo Electrónico</label>
+                                            <input type="email" class="form-control" id="email" name="email" required>
+                                            <div class="error-message">Ingrese un correo electrónico válido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="section-subtitle mt-4">Información del Representante Legal</h3>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nombreRepresentante" class="form-label">Nombre Completo</label>
+                                            <input type="text" class="form-control" id="nombreRepresentante" name="nombreRepresentante" required>
+                                            <div class="error-message">Este campo es obligatorio</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="rfcRepresentante" class="form-label">RFC</label>
+                                            <input type="text" class="form-control" id="rfcRepresentante" name="rfcRepresentante" required>
+                                            <div class="error-message">Ingrese un RFC válido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="telefonoRepresentante" class="form-label">Teléfono</label>
+                                            <input type="tel" class="form-control" id="telefonoRepresentante" name="telefonoRepresentante" required>
+                                            <div class="error-message">Ingrese un número de teléfono válido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="emailRepresentante" class="form-label">Correo Electrónico</label>
+                                            <input type="email" class="form-control" id="emailRepresentante" name="emailRepresentante" required>
+                                            <div class="error-message">Ingrese un correo electrónico válido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="section-subtitle mt-4">Información del Crédito</h3>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="tipoCredito" class="form-label">Tipo de Crédito</label>
+                                            <select class="form-select" id="tipoCredito" name="tipoCredito" required>
+                                                <option value="" selected disabled>Seleccionar...</option>
+                                                <option value="pymes">Crédito PyMEs</option>
+                                                <option value="simple">Crédito Simple</option>
+                                                <option value="activos">Crédito para Activos Fijos</option>
+                                            </select>
+                                            <div class="error-message">Seleccione una opción</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="montoSolicitado" class="form-label">Monto Solicitado (MXN)</label>
+                                            <input type="number" class="form-control" id="montoSolicitado" name="montoSolicitado" min="300000" max="30000000" required>
+                                            <div class="error-message">El monto debe estar entre $300,000 y $30,000,000</div>
+                                            <div class="form-text">Monto mínimo: $300,000 - Monto máximo: $30,000,000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="plazo" class="form-label">Plazo (meses)</label>
+                                            <select class="form-select" id="plazo" name="plazo" required>
+                                                <option value="" selected disabled>Seleccionar...</option>
+                                                <option value="12">12 meses</option>
+                                                <option value="24">24 meses</option>
+                                                <option value="36">36 meses</option>
+                                                <option value="48">48 meses</option>
+                                                <option value="60">60 meses</option>
+                                            </select>
+                                            <div class="error-message">Seleccione una opción</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="destinoCredito" class="form-label">Destino del Crédito</label>
+                                            <select class="form-select" id="destinoCredito" name="destinoCredito" required>
+                                                <option value="" selected disabled>Seleccionar...</option>
+                                                <option value="capital">Capital de Trabajo</option>
+                                                <option value="activos">Adquisición de Activos</option>
+                                                <option value="expansion">Expansión de Operaciones</option>
+                                                <option value="remodelacion">Remodelación de Instalaciones</option>
+                                                <option value="tecnologia">Inversión en Tecnología</option>
+                                                <option value="otro">Otro</option>
+                                            </select>
+                                            <div class="error-message">Seleccione una opción</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="descripcionProyecto" class="form-label">Descripción del Proyecto</label>
+                                            <textarea class="form-control" id="descripcionProyecto" name="descripcionProyecto" rows="4" required></textarea>
+                                            <div class="error-message">Este campo es obligatorio</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-end mt-4">
+                                    <button type="button" class="btn btn-primary" id="nextToStep2">Continuar</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Step 2: Documentos Requeridos -->
+                            <div class="form-step" id="step2">
+                                <h3 class="section-subtitle">Documentos Requeridos</h3>
+                                <p>Por favor, sube los siguientes documentos en formato PDF o imagen (JPG, PNG). Tamaño máximo por archivo: 5MB.</p>
+                                
+                                <div class="file-upload">
+                                    <label class="file-upload-label">INE del Representante Legal (ambos lados)</label>
+                                    <input type="file" class="file-upload-input" id="ineFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                                    <label for="ineFile" class="file-upload-btn">Seleccionar archivo</label>
+                                    <span class="file-upload-info" id="ineFileInfo">Ningún archivo seleccionado</span>
+                                    <div class="error-message">Este documento es obligatorio</div>
+                                    <div class="file-upload-preview" id="ineFilePreview"></div>
+                                </div>
+                                
+                                <div class="file-upload">
+                                    <label class="file-upload-label">Acta Constitutiva</label>
+                                    <input type="file" class="file-upload-input" id="actaFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                                    <label for="actaFile" class="file-upload-btn">Seleccionar archivo</label>
+                                    <span class="file-upload-info" id="actaFileInfo">Ningún archivo seleccionado</span>
+                                    <div class="error-message">Este documento es obligatorio</div>
+                                    <div class="file-upload-preview" id="actaFilePreview"></div>
+                                </div>
+                                
+                                <div class="file-upload">
+                                    <label class="file-upload-label">Acta de Situación Fiscal</label>
+                                    <input type="file" class="file-upload-input" id="situacionFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                                    <label for="situacionFile" class="file-upload-btn">Seleccionar archivo</label>
+                                    <span class="file-upload-info" id="situacionFileInfo">Ningún archivo seleccionado</span>
+                                    <div class="error-message">Este documento es obligatorio</div>
+                                    <div class="file-upload-preview" id="situacionFilePreview"></div>
+                                </div>
+                                
+                                <div class="file-upload">
+                                    <label class="file-upload-label">Comprobante de Domicilio (no mayor a 3 meses)</label>
+                                    <input type="file" class="file-upload-input" id="domicilioFile" accept=".pdf,.jpg,.jpeg,.png" required>
+                                    <label for="domicilioFile" class="file-upload-btn">Seleccionar archivo</label>
+                                    <span class="file-upload-info" id="domicilioFileInfo">Ningún archivo seleccionado</span>
+                                    <div class="error-message">Este documento es obligatorio</div>
+                                    <div class="file-upload-preview" id="domicilioFilePreview"></div>
+                                </div>
+                                
+                                <div class="file-upload">
+                                    <label class="file-upload-label">Estados de Cuenta Bancarios (últimos 6 meses)</label>
+                                    <input type="file" class="file-upload-input" id="estadosFile" accept=".pdf,.jpg,.jpeg,.png" multiple required>
+                                    <label for="estadosFile" class="file-upload-btn">Seleccionar archivos</label>
+                                    <span class="file-upload-info" id="estadosFileInfo">Ningún archivo seleccionado</span>
+                                    <div class="error-message">Este documento es obligatorio</div>
+                                    <div class="form-text">Selecciona los 6 estados de cuenta en un solo paso o súbelos individualmente</div>
+                                    <div class="file-upload-preview" id="estadosFilePreview"></div>
+                                </div>
+                                
+                                <div class="file-upload">
+                                    <label class="file-upload-label">Documentos Adicionales (opcional)</label>
+                                    <input type="file" class="file-upload-input" id="adicionalesFile" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                                    <label for="adicionalesFile" class="file-upload-btn">Seleccionar archivos</label>
+                                    <span class="file-upload-info" id="adicionalesFileInfo">Ningún archivo seleccionado</span>
+                                    <div class="file-upload-preview" id="adicionalesFilePreview"></div>
+                                </div>
+                                
+                                <div class="form-check mt-4">
+                                    <input class="form-check-input" type="checkbox" id="terminosCheck" required>
+                                    <label class="form-check-label" for="terminosCheck">
+                                        He leído y acepto los <a href="#" target="_blank">Términos y Condiciones</a> y la <a href="#" target="_blank">Política de Privacidad</a>
+                                    </label>
+                                    <div class="error-message">Debes aceptar los términos y condiciones</div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between mt-4">
+                                    <button type="button" class="btn btn-secondary" id="backToStep1">Regresar</button>
+                                    <button type="submit" class="btn btn-primary" id="submitForm">Enviar Solicitud</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Confirmation Section -->
+    <section class="confirmation-section" id="confirmationSection">
+        <div class="container">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="confirmation-title">¡Solicitud Enviada con Éxito!</h2>
+            <p class="confirmation-text">
+                Hemos recibido tu solicitud de financiamiento. Nuestro equipo revisará la información proporcionada y te contactará en un plazo máximo de 48 horas para continuar con el proceso.
+            </p>
+            <p class="confirmation-text">
+                Se ha enviado un correo electrónico de confirmación a la dirección proporcionada con los detalles de tu solicitud y los siguientes pasos a seguir.
+            </p>
+            <a href="index.html" class="btn btn-primary">Volver al Inicio</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <img src="images/logo.png" alt="Veltium Group" class="footer-logo">
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Torre Reforma, Paseo de la Reforma 483, Cuauhtémoc, 06500 Ciudad de México, CDMX</p>
+                        <p><i class="fas fa-phone"></i> (55) 1234 5678</p>
+                        <p><i class="fas fa-envelope"></i> contacto@veltiumgroup.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <div class="footer-links">
+                        <h4>Enlaces</h4>
+                        <ul>
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="nosotros.html">Nosotros</a></li>
+                            <li><a href="creditos.html">Créditos</a></li>
+                            <li><a href="documentos.html">Documentos</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <div class="footer-links">
+                        <h4>Servicios</h4>
+                        <ul>
+                            <li><a href="creditos.html">Crédito PyMEs</a></li>
+                            <li><a href="creditos.html">Crédito Simple</a></li>
+                            <li><a href="creditos.html">Crédito Activos Fijos</a></li>
+                            <li><a href="#">Asesoría Financiera</a></li>
+                            <li><a href="#">Consultoría Empresarial</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <div class="footer-links">
+                        <h4>Regulación</h4>
+                        <p>Veltium Group es una empresa regulada y supervisada por las principales entidades financieras de México, garantizando operaciones seguras y transparentes.</p>
+                        <div class="regulators">
+                            <img src="images/cnbv.png" alt="CNBV">
+                            <img src="images/condusef.fw.png" alt="CONDUSEF">
+                            <img src="images/buro.png" alt="Buró de Entidades Financieras">
+                            <img src="images/logoESR.png" alt="ESR">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Veltium Group. Todos los derechos reservados.</p>
+                <p>
+                    <a href="#">Términos y Condiciones</a> | 
+                    <a href="#">Política de Privacidad</a> | 
+                    <a href="#">Aviso Legal</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Variables
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step1Indicator = document.getElementById('step1-indicator');
+            const step2Indicator = document.getElementById('step2-indicator');
+            const step3Indicator = document.getElementById('step3-indicator');
+            const nextToStep2Button = document.getElementById('nextToStep2');
+            const backToStep1Button = document.getElementById('backToStep1');
+            const submitFormButton = document.getElementById('submitForm');
+            const solicitudForm = document.getElementById('solicitudForm');
+            const confirmationSection = document.getElementById('confirmationSection');
+            const formSection = document.querySelector('.form-section');
+            
+            // File upload elements
+            const fileInputs = document.querySelectorAll('.file-upload-input');
+            
+            // Step navigation
+            nextToStep2Button.addEventListener('click', function() {
+                if (validateStep1()) {
+                    step1.classList.remove('active');
+                    step2.classList.add('active');
+                    step1Indicator.classList.remove('active');
+                    step1Indicator.classList.add('completed');
+                    step2Indicator.classList.add('active');
+                    window.scrollTo(0, 0);
+                }
+            });
+            
+            backToStep1Button.addEventListener('click', function() {
+                step2.classList.remove('active');
+                step1.classList.add('active');
+                step2Indicator.classList.remove('active');
+                step1Indicator.classList.remove('completed');
+                step1Indicator.classList.add('active');
+                window.scrollTo(0, 0);
+            });
+            
+            // Form submission
+            solicitudForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (validateStep2()) {
+                    // Simulate form submission
+                    submitFormButton.disabled = true;
+                    submitFormButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                    
+                    setTimeout(function() {
+                        formSection.style.display = 'none';
+                        confirmationSection.classList.add('active');
+                        window.scrollTo(0, 0);
+                        
+                        // Mark step 3 as completed
+                        step2Indicator.classList.remove('active');
+                        step2Indicator.classList.add('completed');
+                        step3Indicator.classList.add('active');
+                    }, 2000);
+                }
+            });
+            
+            // File upload handling
+            fileInputs.forEach(function(input) {
+                const infoElement = document.getElementById(input.id + 'Info');
+                const previewElement = document.getElementById(input.id + 'Preview');
+                
+                input.addEventListener('change', function() {
+                    if (input.files.length > 0) {
+                        if (input.multiple) {
+                            infoElement.textContent = `${input.files.length} archivo(s) seleccionado(s)`;
+                        } else {
+                            infoElement.textContent = input.files[0].name;
+                        }
+                        
+                        // Clear previous preview
+                        previewElement.innerHTML = '';
+                        previewElement.classList.add('active');
+                        
+                        // Create preview for each file
+                        Array.from(input.files).forEach(function(file) {
+                            const fileItem = document.createElement('div');
+                            fileItem.className = 'file-preview-item';
+                            
+                            const fileIcon = document.createElement('div');
+                            fileIcon.className = 'file-preview-icon';
+                            
+                            if (file.type.includes('pdf')) {
+                                fileIcon.innerHTML = '<i class="fas fa-file-pdf"></i>';
+                            } else if (file.type.includes('image')) {
+                                fileIcon.innerHTML = '<i class="fas fa-file-image"></i>';
+                            } else {
+                                fileIcon.innerHTML = '<i class="fas fa-file"></i>';
+                            }
+                            
+                            const fileName = document.createElement('div');
+                            fileName.className = 'file-preview-name';
+                            fileName.textContent = file.name;
+                            
+                            const fileRemove = document.createElement('div');
+                            fileRemove.className = 'file-preview-remove';
+                            fileRemove.innerHTML = '<i class="fas fa-times"></i>';
+                            fileRemove.addEventListener('click', function() {
+                                // Remove file from input
+                                const dataTransfer = new DataTransfer();
+                                const files = Array.from(input.files);
+                                
+                                files.forEach(function(f) {
+                                    if (f !== file) {
+                                        dataTransfer.items.add(f);
+                                    }
+                                });
+                                
+                                input.files = dataTransfer.files;
+                                
+                                // Update info text
+                                if (input.files.length > 0) {
+                                    if (input.multiple) {
+                                        infoElement.textContent = `${input.files.length} archivo(s) seleccionado(s)`;
+                                    } else {
+                                        infoElement.textContent = input.files[0].name;
+                                    }
+                                } else {
+                                    infoElement.textContent = 'Ningún archivo seleccionado';
+                                    previewElement.classList.remove('active');
+                                }
+                                
+                                // Remove preview item
+                                fileItem.remove();
+                            });
+                            
+                            fileItem.appendChild(fileIcon);
+                            fileItem.appendChild(fileName);
+                            fileItem.appendChild(fileRemove);
+                            previewElement.appendChild(fileItem);
+                        });
+                    } else {
+                        infoElement.textContent = 'Ningún archivo seleccionado';
+                        previewElement.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Form validation functions
+            function validateStep1() {
+                let isValid = true;
+                
+                // Validate required fields in step 1
+                const step1Fields = step1.querySelectorAll('input[required], select[required], textarea[required]');
+                
+                step1Fields.forEach(function(field) {
+                    if (!field.value.trim()) {
+                        field.classList.add('is-invalid');
+                        isValid = false;
+                    } else {
+                        field.classList.remove('is-invalid');
+                    }
+                });
+                
+                // Validate RFC format
+                const rfcField = document.getElementById('rfc');
+                const rfcPattern = /^[A-Z&Ñ]{3,4}[0-9]{6}[A-Z0-9]{3}$/;
+                
+                if (rfcField.value.trim() && !rfcPattern.test(rfcField.value.trim())) {
+                    rfcField.classList.add('is-invalid');
+                    isValid = false;
+                }
+                
+                // Validate RFC Representante format
+                const rfcRepField = document.getElementById('rfcRepresentante');
+                
+                if (rfcRepField.value.trim() && !rfcPattern.test(rfcRepField.value.trim())) {
+                    rfcRepField.classList.add('is-invalid');
+                    isValid = false;
+                }
+                
+                // Validate email format
+                const emailField = document.getElementById('email');
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (emailField.value.trim() && !emailPattern.test(emailField.value.trim())) {
+                    emailField.classList.add('is-invalid');
+                    isValid = false;
+                }
+                
+                // Validate email Representante format
+                const emailRepField = document.getElementById('emailRepresentante');
+                
+                if (emailRepField.value.trim() && !emailPattern.test(emailRepField.value.trim())) {
+                    emailRepField.classList.add('is-invalid');
+                    isValid = false;
+                }
+                
+                // Validate monto solicitado
+                const montoField = document.getElementById('montoSolicitado');
+                const montoValue = parseInt(montoField.value.trim());
+                
+                if (montoField.value.trim() && (montoValue < 300000 || montoValue > 30000000)) {
+                    montoField.classList.add('is-invalid');
+                    isValid = false;
+                }
+                
+                return isValid;
+            }
+            
+            function validateStep2() {
+                let isValid = true;
+                
+                // Validate required file inputs
+                const requiredFileInputs = step2.querySelectorAll('input[type="file"][required]');
+                
+                requiredFileInputs.forEach(function(input) {
+                    if (input.files.length === 0) {
+                        input.parentElement.querySelector('.error-message').style.display = 'block';
+                        isValid = false;
+                    } else {
+                        input.parentElement.querySelector('.error-message').style.display = 'none';
+                    }
+                });
+                
+                // Validate terms checkbox
+                const terminosCheck = document.getElementById('terminosCheck');
+                
+                if (!terminosCheck.checked) {
+                    terminosCheck.parentElement.querySelector('.error-message').style.display = 'block';
+                    isValid = false;
+                } else {
+                    terminosCheck.parentElement.querySelector('.error-message').style.display = 'none';
+                }
+                
+                return isValid;
+            }
+        });
+    </script>
+</body>
+</html>

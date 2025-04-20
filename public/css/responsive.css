@@ -1,0 +1,387 @@
+/* Estilos responsive para el sitio web de Veltium Group */
+
+/* Media queries para dispositivos móviles y tablets */
+
+/* Tablets (768px - 991px) */
+@media (max-width: 991px) {
+  /* Ajustes generales */
+  .container {
+    padding: 0 15px;
+  }
+  
+  /* Header y navegación */
+  .navbar-brand img {
+    height: 40px;
+  }
+  
+  .navbar-nav {
+    margin-top: 10px;
+  }
+  
+  /* Secciones de la página de inicio */
+  .hero-section {
+    padding: 80px 0;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .feature-card {
+    margin-bottom: 30px;
+  }
+  
+  /* Sección de servicios */
+  .service-card {
+    margin-bottom: 30px;
+  }
+  
+  /* Formularios */
+  .form-container {
+    padding: 30px;
+  }
+  
+  /* Sección de documentos */
+  .document-upload-section {
+    padding: 30px;
+  }
+  
+  /* Footer */
+  .footer-section {
+    padding: 40px 0;
+  }
+  
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  
+  .footer-links {
+    margin-bottom: 20px;
+  }
+  
+  /* Panel de administración */
+  .admin-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .admin-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Móviles (hasta 767px) */
+@media (max-width: 767px) {
+  /* Ajustes generales */
+  body {
+    font-size: 14px;
+  }
+  
+  .section-padding {
+    padding: 40px 0;
+  }
+  
+  /* Header y navegación */
+  .navbar-brand img {
+    height: 35px;
+  }
+  
+  .navbar-toggler {
+    margin-right: 0;
+  }
+  
+  /* Secciones de la página de inicio */
+  .hero-section {
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  
+  .hero-image {
+    margin-top: 30px;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* Tarjetas y elementos de contenido */
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .feature-card, .service-card, .team-card, .testimonial-card {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  /* Formularios */
+  .form-container {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-size: 0.9rem;
+  }
+  
+  .form-control {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  /* Sección de documentos */
+  .document-upload-section {
+    padding: 20px;
+  }
+  
+  .document-upload-container {
+    padding: 15px;
+  }
+  
+  .file-upload-label {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+  
+  /* Botones */
+  .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
+  /* Footer */
+  .footer-section {
+    padding: 30px 0;
+    text-align: center;
+  }
+  
+  .footer-logo {
+    margin-bottom: 20px;
+  }
+  
+  .footer-links, .footer-contact, .footer-social {
+    margin-bottom: 20px;
+  }
+  
+  .footer-title {
+    margin-bottom: 10px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+  }
+  
+  .footer-bottom p {
+    margin-bottom: 10px;
+  }
+  
+  /* Panel de administración */
+  .admin-sidebar {
+    width: 0;
+    transition: width 0.3s ease;
+  }
+  
+  .admin-sidebar.active {
+    width: 250px;
+  }
+  
+  .admin-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .admin-header-actions {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  .admin-search {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  
+  .admin-search-input {
+    width: 100%;
+  }
+  
+  .admin-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .admin-table th, .admin-table td {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .admin-action-btn {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Móviles pequeños (hasta 575px) */
+@media (max-width: 575px) {
+  /* Ajustes generales */
+  .container {
+    padding: 0 10px;
+  }
+  
+  /* Header y navegación */
+  .navbar-brand img {
+    height: 30px;
+  }
+  
+  /* Secciones de la página de inicio */
+  .hero-section {
+    padding: 40px 0;
+  }
+  
+  .hero-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .hero-content p {
+    font-size: 0.85rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  /* Tarjetas y elementos de contenido */
+  .feature-card, .service-card, .team-card, .testimonial-card {
+    padding: 12px;
+  }
+  
+  /* Formularios */
+  .form-container {
+    padding: 15px;
+  }
+  
+  .form-steps {
+    flex-direction: column;
+  }
+  
+  .form-step {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  /* Botones */
+  .btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  
+  /* Panel de administración */
+  .admin-stat-card {
+    padding: 1rem;
+  }
+  
+  .admin-stat-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .admin-stat-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  .admin-stat-info p {
+    font-size: 0.8rem;
+  }
+  
+  .admin-card-header h2 {
+    font-size: 1.1rem;
+  }
+  
+  .admin-table-container {
+    overflow-x: auto;
+  }
+  
+  .admin-table {
+    min-width: 500px;
+  }
+}
+
+/* Ajustes para pantallas grandes (más de 1200px) */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Ajustes para orientación horizontal en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-section {
+    padding: 30px 0;
+  }
+  
+  .navbar-collapse {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
+/* Ajustes para dispositivos con pantalla táctil */
+@media (hover: none) {
+  .btn:hover {
+    opacity: 1;
+  }
+  
+  .nav-link:hover {
+    color: inherit;
+  }
+  
+  /* Aumentar tamaño de elementos interactivos para facilitar el toque */
+  .btn, .nav-link, .form-control, .file-upload-label {
+    min-height: 44px;
+  }
+  
+  .admin-action-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

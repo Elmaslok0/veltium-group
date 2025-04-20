@@ -1,0 +1,293 @@
+/* Componentes UI para Veltium Group */
+@import 'colors.css';
+@import 'typography.css';
+
+/* Botones */
+.btn {
+  display: inline-block;
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--primary-gold);
+  color: var(--primary-dark-blue);
+  border-color: var(--primary-gold);
+}
+
+.btn-primary:hover {
+  background-color: var(--light-gold);
+  border-color: var(--light-gold);
+}
+
+.btn-secondary {
+  background-color: var(--primary-dark-blue);
+  color: var(--white);
+  border-color: var(--primary-dark-blue);
+}
+
+.btn-secondary:hover {
+  background-color: var(--dark-blue-secondary);
+  border-color: var(--dark-blue-secondary);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-gold);
+  border-color: var(--primary-gold);
+}
+
+.btn-outline:hover {
+  background-color: var(--primary-gold);
+  color: var(--primary-dark-blue);
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: var(--font-size-lg);
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: var(--font-size-sm);
+}
+
+/* Tarjetas */
+.card {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  padding: 1.5rem;
+  background-color: var(--primary-dark-blue);
+  color: var(--white);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  padding: 1rem 1.5rem;
+  background-color: var(--off-white);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Formularios */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-dark);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-dark);
+  background-color: var(--white);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: var(--primary-gold);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(212, 179, 107, 0.25);
+}
+
+.form-control::placeholder {
+  color: var(--text-gray);
+  opacity: 0.7;
+}
+
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  color: var(--text-dark);
+  background-color: var(--white);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  appearance: none;
+}
+
+.form-select:focus {
+  border-color: var(--primary-gold);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(212, 179, 107, 0.25);
+}
+
+/* File upload */
+.file-upload {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-upload-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: var(--off-white);
+  border: 2px dashed rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.file-upload-label:hover {
+  border-color: var(--primary-gold);
+  background-color: rgba(212, 179, 107, 0.1);
+}
+
+.file-upload-icon {
+  margin-right: 0.5rem;
+}
+
+/* Alertas */
+.alert {
+  position: relative;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+.badge-primary {
+  background-color: var(--primary-gold);
+  color: var(--primary-dark-blue);
+}
+
+.badge-secondary {
+  background-color: var(--primary-dark-blue);
+  color: var(--white);
+}
+
+/* Reguladores footer */
+.regulators-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.regulator-logo {
+  height: 60px;
+  width: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.regulator-logo:hover {
+  opacity: 1;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .btn-lg {
+    padding: 0.8rem 1.6rem;
+  }
+  
+  .card-header, .card-body, .card-footer {
+    padding: 1rem;
+  }
+  
+  .regulators-container {
+    gap: 1rem;
+  }
+  
+  .regulator-logo {
+    height: 40px;
+  }
+}

@@ -1,0 +1,20 @@
+:root {
+  /* Colores principales basados en el logo de Veltium Group */
+  --primary-dark-blue: #0b1a33;  /* Azul marino oscuro del fondo del logo */
+  --primary-gold: #d4b36b;       /* Dorado del logo */
+  --secondary-beige: #e1d5b8;    /* Beige claro para acentos */
+  
+  /* Colores complementarios */
+  --dark-blue-secondary: #152a4a; /* Azul marino un poco más claro para variaciones */
+  --light-gold: #e6d6a8;         /* Dorado más claro para hover */
+  --white: #ffffff;              /* Blanco para textos sobre fondos oscuros */
+  --off-white: #f8f8f8;          /* Blanco roto para fondos de secciones */
+  --text-dark: #333333;          /* Texto oscuro principal */
+  --text-gray: #666666;          /* Texto gris para párrafos secundarios */
+  
+  /* Colores de estado */
+  --success: #28a745;            /* Verde para mensajes de éxito */
+  --warning: #ffc107;            /* Amarillo para advertencias */
+  --danger: #dc3545;             /* Rojo para errores */
+  --info: #17a2b8;               /* Azul claro para información */
+}
